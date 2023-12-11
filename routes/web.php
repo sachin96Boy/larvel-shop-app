@@ -39,6 +39,7 @@ Route::get('/', function () {
 // });
 
 // single listing 
+// search based on id
 Route::get('/listings/{id}', function (Listing $id) {
     // $listing = Listing::find($id);
 

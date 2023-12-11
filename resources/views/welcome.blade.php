@@ -46,10 +46,7 @@
 
         @unless (count($listings) == 0)
             @foreach ($listings as $listing)
-                <a href="/listings/{{ $listing->id }}">
-                    <h2 class="text-lg font-bold">{{ $listing->title }}</h2>
-                </a>
-                <p class="text-sm">{{ $listing->description }}</p>
+                <x-listing-card :listing='$listing' />
             @endforeach
         @else
             <p>No listings Found</p>
