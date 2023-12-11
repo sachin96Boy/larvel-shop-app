@@ -40,14 +40,14 @@ Route::get('/', function () {
 
 // single listing 
 Route::get('/listings/{id}', function (Listing $id) {
-    $listing = Listing::find($id);
+    // $listing = Listing::find($id);
 
-    if ($listing) {
+    // if ($listing) {
 
         return view('listing', [
-            'listing' => Listing::find($id)
+            'listing' => $id
         ]);
-    }else{
-        abort('404');
-    }
+    // }else{
+    //     abort('404');
+    // }
 });
