@@ -12,7 +12,12 @@
 <body>
     <h1>Laragigs</h1>
     {{-- view output --}}
-    @yield('content')
+
+    {{-- insted on using yield and using like that
+        add a $slot and add relevent sections as child elements
+        so this will act as a parent wrapper --}}
+    {{-- @yield('content') --}}
+    {{ $slot }}
 </body>
 
 </html>

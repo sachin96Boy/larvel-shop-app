@@ -1,6 +1,8 @@
 @props(['listing'])
 
+{{-- remember when using x-card like a wrapper it should always sit inside the components folder --}}
 <x-card>
+
     <a href="/listings/{{ $listing->id }}">
         <h2 class="text-lg font-bold">{{ $listing->title }}</h2>
     </a>

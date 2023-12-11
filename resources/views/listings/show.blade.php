@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
     @include('partials._search')
     <div>
         <h2 class="text-lg font-bold">{{ $listing->title }}</h2>
@@ -11,4 +9,4 @@
         <hr>
         <x-listing-tags :tagsCSV='$listing->tags' />
     </div>
-@endsection
+</x-layout>
