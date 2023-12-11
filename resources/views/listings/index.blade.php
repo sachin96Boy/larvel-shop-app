@@ -31,7 +31,7 @@
 
 
     {{-- using blade and its directives --}}
-    <h1>{{ $heading }}</h1>
+    {{-- <h1>{{ $heading }}</h1> --}}
 
 
     {{-- @if (count($listings) == 0)
