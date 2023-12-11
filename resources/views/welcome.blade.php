@@ -37,18 +37,25 @@
     {{-- @if (count($listings) == 0)
         <p>No listing found</p>
     @endif --}}
+    @extends('layout')
 
-    @unless (count($listings) == 0)
+    @section('content')
 
-        @foreach ($listings as $listing)
-            <a href="/listings/{{ $listing['id'] }}">
-                <h2 class="text-lg font-bold">{{ $listing['title'] }}</h2>
-            </a>
-            <p class="text-sm">{{ $listing['description'] }}</p>
-        @endforeach
-    @else
-        <p>No listings Found</p>
-    @endunless
+        @include('partials._hero')
+        @include('partials._search')
+
+        @unless (count($listings) == 0)
+            @foreach ($listings as $listing)
+                <a href="/listings/{{ $listing->id }}">
+                    <h2 class="text-lg font-bold">{{ $listing->title }}</h2>
+                </a>
+                <p class="text-sm">{{ $listing->description }}</p>
+            @endforeach
+        @else
+            <p>No listings Found</p>
+        @endunless
+    @endsection
+
 
 
     {{--  --}}
