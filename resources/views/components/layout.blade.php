@@ -24,6 +24,8 @@
             <p>go to form</p>
         </a>
     </div>
+
+    <x-flash-message />
 </body>
 
 </html>
