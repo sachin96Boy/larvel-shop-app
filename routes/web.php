@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ListingController::class, 'index']);
+Route::get('/', [ListingController::class, 'index'])->middleware('auth');
 
 // Route::get('/hello', function(){
 //     return response('<h1>hello world</h1>')
@@ -37,23 +37,23 @@ Route::get('/', [ListingController::class, 'index']);
 
 
 // show create form
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 // store listing data
-Route::post('/listings', [ListingController::class, 'store']);
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
 
 // store edit route
-Route::get('/listings/${listing}/edit', [ListingController::class, 'edit']);
+Route::get('/listings/${listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
 
 // TODO
 // edit submit to update
-Route::put('/listings/${listing}', [ListingController::class, 'update']);
+Route::put('/listings/${listing}', [ListingController::class, 'update'])->middleware('auth');
 
 // TODO
 // edit submit to update
-Route::delete('/listings/${listing}', [ListingController::class, 'delete']);
+Route::delete('/listings/${listing}', [ListingController::class, 'delete'])->middleware('auth');
 
 
 
@@ -63,7 +63,7 @@ Route::delete('/listings/${listing}', [ListingController::class, 'delete']);
 
 // single listing 
 // search based on id
-Route::get('/listings/{id}', [ListingController::class, 'show']);
+Route::get('/listings/{id}', [ListingController::class, 'show'])->middleware('auth');
 
 
 
@@ -71,7 +71,7 @@ Route::get('/listings/{id}', [ListingController::class, 'show']);
 
 // authentication and Registration on app
 // show register /crate form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // store registered userss
 Route::post('/users', [UserController::class, 'store']);
@@ -80,8 +80,14 @@ Route::post('/users', [UserController::class, 'store']);
 // logout user
 Route::post('/logout', [UserController::class, 'logout']);
 
+
+
+// we use name field to declare name for the route path
+// so we can use this name inside route('name goes here')
+
+
 // login user
-Route::post('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 
 // login user submit form
