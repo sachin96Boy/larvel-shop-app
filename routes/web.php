@@ -80,6 +80,13 @@ Route::post('/users', [UserController::class, 'store']);
 // logout user
 Route::post('/logout', [UserController::class, 'logout']);
 
+// login user
+Route::post('/login', [UserController::class, 'login']);
+
+
+// login user submit form
+Route::post('/login/auth', [UserController::class, 'auth']);
+
 
 
 
