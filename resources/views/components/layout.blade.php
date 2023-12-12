@@ -18,6 +18,12 @@
         so this will act as a parent wrapper --}}
     {{-- @yield('content') --}}
     {{ $slot }}
+
+    <div>
+        <a href="/listings/create">
+            <p>go to form</p>
+        </a>
+    </div>
 </body>
 
 </html>

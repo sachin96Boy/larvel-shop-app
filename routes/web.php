@@ -34,9 +34,23 @@ Route::get('/', [ListingController::class, 'index']);
 //     dd($request-> name .' '. $request->city);
 // });
 
+
+// show create form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// store listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
+
+
+// importentmake sure you add dynamic routes like below to end so that it'll not look in with 
+// more piority
+// like we do in react
+
 // single listing 
 // search based on id
 Route::get('/listings/{id}', [ListingController::class, 'show']);
+
 
 
 // common resource routes
