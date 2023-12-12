@@ -10,6 +10,25 @@
 </head>
 
 <body>
+    @auth
+        <div class="row">
+            <span>welcome {{ auth()->user()->name }}</span>
+            <a href="/listings/manage">manage listings</a>
+            {{-- logout --}}
+            {{-- it's add as a form to reger a request --}}
+            <form class="inline" method="POST" action="/logout">
+                @csrf
+                <button type="submit">
+                    logout
+                </button>
+            </form>
+        </div>
+    @else
+        <div class="row">
+            <a href="/login">login</a>
+            <a href="/register">register</a>
+        </div>
+    @endauth
     <h1>Laragigs</h1>
     {{-- view output --}}
 

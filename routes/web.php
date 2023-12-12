@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,19 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 Route::post('/listings', [ListingController::class, 'store']);
 
 
+// store edit route
+Route::get('/listings/${listing}/edit', [ListingController::class, 'edit']);
+
+
+// TODO
+// edit submit to update
+Route::put('/listings/${listing}', [ListingController::class, 'update']);
+
+// TODO
+// edit submit to update
+Route::delete('/listings/${listing}', [ListingController::class, 'delete']);
+
+
 
 // importentmake sure you add dynamic routes like below to end so that it'll not look in with 
 // more piority
@@ -50,6 +64,22 @@ Route::post('/listings', [ListingController::class, 'store']);
 // single listing 
 // search based on id
 Route::get('/listings/{id}', [ListingController::class, 'show']);
+
+
+
+
+
+// authentication and Registration on app
+// show register /crate form
+Route::get('/register', [UserController::class, 'create']);
+
+// store registered userss
+Route::post('/users', [UserController::class, 'store']);
+
+
+// logout user
+Route::post('/logout', [UserController::class, 'logout']);
+
 
 
 
